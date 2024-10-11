@@ -53,7 +53,7 @@ export default function CustomNavbar() {
         />
         <NavbarBrand>
           <Link href="/" color="foreground">
-            Logo
+          游戏合集
           </Link>
         </NavbarBrand>
       </NavbarContent>
