@@ -1,0 +1,37 @@
+{
+    "downloads": [
+      {
+        "source": "byruthub",
+        "icon": "https://via.placeholder.com/40x40",
+        "links": [
+          {
+            "type": "磁力链接",
+            "icon": "https://via.placeholder.com/20x20",
+            "url": "magnet:?xt=urn:btih:..."
+          },
+          {
+            "type": "网盘链接",
+            "icon": "https://via.placeholder.com/20x20",
+            "url": "https://pan.baidu.com/..."
+          }
+        ]
+      },
+      {
+        "source": "fitgirl-repacks.site",
+        "icon": "https://via.placeholder.com/40x40",
+        "links": [
+          {
+            "type": "磁力链接",
+            "icon": "https://via.placeholder.com/20x20",
+            "url": "magnet:?xt=urn:btih:..."
+          },
+          {
+            "type": "网盘链接",
+            "icon": "https://via.placeholder.com/20x20",
+            "url": "https://mega.nz/..."
+          }
+        ]
+      }
+    ]
+  }
+  

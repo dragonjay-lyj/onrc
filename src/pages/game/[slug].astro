@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar';
+
+
+const games = await getCollection('game');
+
+const [game] = games;
+
+const { Content } = await game.render();
+
+---
+
+<Layout title={game.data.title}>
+<main>
+  <Navbar client:visible />
+  <div class="container mx-auto p-8">
+    <article class="prose lg:prose-xl">
+      <h1 class="text-3xl font-bold mb-4">{game.data.title}</h1>
+      <Content />
+    </article>
+    </div>
+</main>
+</Layout>

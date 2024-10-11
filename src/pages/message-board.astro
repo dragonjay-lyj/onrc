@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar';
+import { Waline } from '../../src/components/waline';
+---
+
+<Layout title="Kemono">
+  <main>
+    <Navbar client:visible />
+    <div class="container mx-auto">
+        <Waline serverURL="https://com.dragonjay.top" path="/message-board" pageview={true} emoji={[
+            'https://unpkg.com/@waline/emojis@1.2.0/bilibili',
+            'https://unpkg.com/@waline/emojis@1.2.0/bmoji',
+            'https://unpkg.com/@waline/emojis@1.2.0/qq',
+            'https://unpkg.com/@waline/emojis@1.2.0/tieba',
+            'https://unpkg.com/@waline/emojis@1.2.0/weibo',
+            'https://unpkg.com/@waline/emojis@1.2.0/soul-emoji'
+          ]} client:visible />
+    </div>
+  </main>
+</Layout>
