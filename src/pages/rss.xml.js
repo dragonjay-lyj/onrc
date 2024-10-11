@@ -14,6 +14,7 @@ export async function GET(context) {
       return {
         title: post.data.title,
         pubDate: post.data.publishDate,
+        tag: post.data.tags,
         link: `/game/${slug}/`, // 正确访问 service 和 slug
         ...post.data,
       };
