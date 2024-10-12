@@ -1,13 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import CustomNavbar from '../components/Navbar.jsx';
-import GameCard from '../components/GameCard.jsx';
+import CustomNavbar from '../components/Navbar';
+import GameCard from '../components/GameCard'; // 使用 TypeScript 组件
 import { getCollection } from 'astro:content';
 
 const games = await getCollection('game');
 
-const popularGames = games.sort((a, b) => b.data.views - a.data.views);
-const latestGames = games.sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime());
+// 按发布时间排序
+const latestGames = [...games].sort(
+  (a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime()
+);
+
+// 按标签分类
 const categorizedGames = games.reduce((acc, game) => {
   game.data.tags.forEach((tag) => {
     if (!acc[tag]) acc[tag] = [];
@@ -18,43 +22,45 @@ const categorizedGames = games.reduce((acc, game) => {
 ---
 <Layout title="游戏合集">
   <main>
-<CustomNavbar client:visible />
+    <CustomNavbar client:visible />
 
-<div class="container mx-auto p-8">
-  <h1 class="text-3xl font-bold mb-4">首页</h1>
+    <div class="container mx-auto p-8">
+      <h1 class="text-3xl font-bold mb-4">首页</h1>
 
-  <section class="mb-8">
-    <h2 class="text-2xl font-bold mb-4">热门游戏</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      {popularGames.map((game) => (
-        <GameCard key={game.slug} slug={game.slug} game={game.data} isLoading={false} client:visible />
-      ))}
-    </div>
-  </section>
-
-  <section class="mb-8">
-    <h2 class="text-2xl font-bold mb-4">最新更新</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      {latestGames.map((game) => (
-        <GameCard key={game.slug} slug={game.slug} game={game.data} isLoading={false} client:visible />
-      ))}
-    </div>
-  </section>
-
-  <section class="mb-8">
-    <h2 class="text-2xl font-bold mb-4">分类导航</h2>
-    {Object.keys(categorizedGames).map((tag) => (
-      <div key={tag} class="mb-4">
-        <h3 class="text-xl font-bold mb-2">{tag}</h3>
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold mb-4">最新更新</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {categorizedGames[tag].map((game) => (
-            <GameCard key={game.slug} slug={game.slug} game={game.data} isLoading={false} client:visible />
+          {latestGames.map((game) => (
+            <GameCard
+              key={game.slug} // React 特殊属性，不会作为 prop 传递
+              slug={game.slug}
+              game={game.data}
+              isLoading={false}
+              client:visible
+            />
           ))}
         </div>
-      </div>
-    ))}
-  </section>
-</div>
+      </section>
 
-</main>
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold mb-4">分类导航</h2>
+        {Object.keys(categorizedGames).map((tag) => (
+          <div key={tag} class="mb-4">
+            <h3 class="text-xl font-bold mb-2">{tag}</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {categorizedGames[tag].map((game) => (
+                <GameCard
+                  key={game.slug} // React 特殊属性，不会作为 prop 传递
+                  slug={game.slug}
+                  game={game.data}
+                  isLoading={false}
+                  client:visible
+                />
+              ))}
+            </div>
+          </div>
+        ))}
+      </section>
+    </div>
+  </main>
 </Layout>

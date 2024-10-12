@@ -39,9 +39,6 @@ export default function GameCard({ game, isLoading, slug }) {
         ) : (
           <div className="flex flex-col space-y-2">
             <div className="flex items-center space-x-2">
-              <span className="text-sm text-gray-600">浏览量: {game.views}</span>
-            </div>
-            <div className="flex items-center space-x-2">
               <span className="text-sm text-gray-600">发布时间: {game.publishDate}</span>
             </div>
             <div className="flex items-center space-x-2">

@@ -151,9 +151,23 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"game": {
+"Balatro.mdx": {
+	id: "Balatro.mdx";
+  slug: "balatro";
+  body: string;
+  collection: "game";
+  data: InferEntrySchema<"game">
+} & { render(): Render[".mdx"] };
 "Dying_Light.mdx": {
 	id: "Dying_Light.mdx";
   slug: "dying_light";
+  body: string;
+  collection: "game";
+  data: InferEntrySchema<"game">
+} & { render(): Render[".mdx"] };
+"Ghost_of_Tsushima.mdx": {
+	id: "Ghost_of_Tsushima.mdx";
+  slug: "ghost_of_tsushima";
   body: string;
   collection: "game";
   data: InferEntrySchema<"game">
@@ -163,14 +177,7 @@ declare module 'astro:content' {
 	};
 
 	type DataEntryMap = {
-		"download": {
-"Dying_Light": {
-	id: "Dying_Light";
-  collection: "download";
-  data: any
-};
-};
-
+		
 	};
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;

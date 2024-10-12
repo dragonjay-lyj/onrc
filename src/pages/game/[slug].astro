@@ -3,13 +3,19 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar';
 
+const { slug } = Astro.params;
 
+// 获取所有游戏
 const games = await getCollection('game');
 
-const [game] = games;
+// 根据 slug 查找对应的游戏
+const game = games.find((g) => g.slug === slug);
+
+if (!game) {
+  throw new Error(`Game not found: ${slug}`);
+}
 
 const { Content } = await game.render();
-
 ---
 
 <Layout title={game.data.title}>

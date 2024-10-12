@@ -5,7 +5,6 @@ const gameCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     coverImage: z.string(),
-    views: z.number(),
     publishDate: z.string(),
     tags: z.array(z.string()),
   }),

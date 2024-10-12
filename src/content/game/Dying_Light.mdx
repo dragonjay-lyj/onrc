@@ -1,7 +1,6 @@
 ---
 title: '消逝的光芒'
 coverImage: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/239140/header.jpg'
-views: 1000
 publishDate: '2015-01-26'
 tags: ['僵尸', '生存恐怖']
 downloads: [
@@ -37,21 +36,6 @@ downloads: [
         type: 'Onedrive(V1.49.0.HOTFIX.2+全DLC)',
         icon: 'https://t0.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://www.gamer520.com&size=20',
         url: 'https://kaifa520.sharepoint.com/:f:/s/PC18-switch520.com/Ei-cnZBwkKdCsJl56gwuVYcB1a0e7o-13uMX9T4cG7N2lg'
-      }
-    ]
-  },
-  {
-    source: 'Switch618',
-    links: [
-      {
-        type: '百度网盘(v1.49.9+全DLC)',
-        icon: 'https://t0.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://pan.baidu.com&size=20',
-        url: 'https://pan.baidu.com/s/1B_OnAI_Y32SoJpB_Z-yr3w?pwd=ifxs'
-      },
-      {
-        type: '123盘(提取码：S618 v1.49.9+全DLC)',
-        icon: 'https://t0.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://www.123pan.com&size=20',
-        url: 'https://www.123pan.com/s/EM1zVv-Tei8'
       }
     ]
   },
@@ -111,7 +95,11 @@ downloads: [
 import {Image} from "@nextui-org/image";
 import Fancybox from "../../../src/components/Fancybox";
 import DownloadCard from '../../../src/components/DownloadCard';
+import PhEyeDuotone from '../../../src/components/PhEyeDuotone.astro';
 import { Waline } from '../../../src/components/waline';
+import {Chip} from "@nextui-org/chip";
+
+<Chip radius="sm" variant="bordered" startContent={<PhEyeDuotone size={18} client:visible />} client:visible>浏览量：<span className="waline-pageview-count" /></Chip>
 
 <section className="mb-8">
     <h2 className="text-2xl font-bold mb-4">游戏截图</h2>      
@@ -245,11 +233,10 @@ client:visible
 <DownloadCard client:visible download={frontmatter.downloads[3]} isLoading={false} />
 <DownloadCard client:visible download={frontmatter.downloads[4]} isLoading={false} />
 <DownloadCard client:visible download={frontmatter.downloads[5]} isLoading={false} />
-<DownloadCard client:visible download={frontmatter.downloads[6]} isLoading={false} />
     </div>
   </section>
 
-  <Waline serverURL="https://com.dragonjay.top" path="/game/dying_light" pageview={true} emoji={[
+  <Waline serverURL="https://com.dragonjay.top" pageview={true} path="/game/dying_light" emoji={[
           'https://unpkg.com/@waline/emojis@1.2.0/bilibili',
           'https://unpkg.com/@waline/emojis@1.2.0/bmoji',
           'https://unpkg.com/@waline/emojis@1.2.0/qq',
