@@ -1,0 +1,33 @@
+---
+import FAQ from '../components/FAQ.jsx';
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar';
+
+const faqData = [
+  {
+    title: "这是个什么样的网站？",
+    content: "这个网站是一个游戏聚合网站，收集了来自byruthub，fitgirl-repacks，Game520，steamzg，xyg688以及KOYSO的游戏资源。"
+  },
+  {
+    title: "Game520的压缩包密码是什么",
+    content: "既答：laoquzhang.com"
+  },
+  {
+    title: "steamzg的压缩包密码是什么",
+    content: "既答：ACGBNS.COM，acgbns.com或ACGBNS"
+  },
+  {
+    title: "xyg688的压缩包密码是什么",
+    content: "既答：xyg688.com"
+  },
+];
+---
+
+<Layout title="Kemono">
+    <main>
+      <Navbar client:visible />
+    <div class="container mx-auto p-8">
+      <FAQ faqData={faqData} client:visible />
+    </div>
+</main>
+</Layout>

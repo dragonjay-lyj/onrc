@@ -172,6 +172,20 @@ declare module 'astro:content' {
   collection: "game";
   data: InferEntrySchema<"game">
 } & { render(): Render[".mdx"] };
+"Murders_on_the_Yangtze_River.mdx": {
+	id: "Murders_on_the_Yangtze_River.mdx";
+  slug: "murders_on_the_yangtze_river";
+  body: string;
+  collection: "game";
+  data: InferEntrySchema<"game">
+} & { render(): Render[".mdx"] };
+"The_Hungry_Lamb_Traveling_in_the_Late_Ming_Dynasty.mdx": {
+	id: "The_Hungry_Lamb_Traveling_in_the_Late_Ming_Dynasty.mdx";
+  slug: "the_hungry_lamb_traveling_in_the_late_ming_dynasty";
+  body: string;
+  collection: "game";
+  data: InferEntrySchema<"game">
+} & { render(): Render[".mdx"] };
 };
 
 	};
