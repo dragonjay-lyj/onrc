@@ -1,3 +1,4 @@
+// src/components/DownloadLinksCard.jsx
 import React from 'react';
 import { Card, CardHeader, CardBody } from "@nextui-org/card";
 import { Image } from "@nextui-org/image";
@@ -5,7 +6,7 @@ import { Link } from "@nextui-org/link";
 import { Chip } from "@nextui-org/chip";
 import { Skeleton } from "@nextui-org/skeleton";
 
-const DownloadLinksCard = ({ source, sourceIcon, links = [], isLoading }) => {
+const DownloadLinksCard = ({ source, sourceIcon, links, isLoading }) => {
   return (
     <Card shadow="md" radius="lg" isHoverable className="mb-4">
       <CardHeader>
