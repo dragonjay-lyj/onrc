@@ -10,6 +10,13 @@ const gameCollection = defineCollection({
     tags: z.array(z.string()),
     screenshots: z.array(z.string()).optional(),  // 游戏截图，可以是可选字段
     video: z.string().optional(),  // 视频链接，可以是可选字段
+    comments: z.array(
+      z.object({
+        user: z.string(),
+        avatar: z.string(),
+        common: z.string(),
+      })
+    ),
     downloads: z.array(
       z.object({
         source: z.string(),  // 下载源名称

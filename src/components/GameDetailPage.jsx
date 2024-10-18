@@ -3,6 +3,7 @@ import { Chip } from "@nextui-org/chip";
 import { Divider } from "@nextui-org/divider";
 import { Image } from "@nextui-org/image";
 import GameDownloadSection from './GameDownloadSection';
+import SteamCommonCard from './SteamCommonCard';
 
 const GameDetailPage = ({ game }) => {
   const { title, coverImage, publishDate, tags, screenshots, video, content, downloads = [] } = game;
@@ -69,6 +70,11 @@ const GameDetailPage = ({ game }) => {
           title="游戏视频"
         ></iframe>
       </div>
+
+      <h2 className="text-2xl font-semibold mb-2">游戏评价</h2>
+        {game.comments.map((comment, index) => (
+          <SteamCommonCard key={index} user={comment.user} avatar={comment.avatar} common={comment.common} />
+        ))}
 
       {/* 下载链接部分 */}
       <GameDownloadSection downloads={downloads} />
