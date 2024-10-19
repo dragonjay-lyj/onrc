@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar';
+import { Waline } from '../../../src/components/waline';
+
+const { slug } = Astro.params;
+const cepings = await getCollection('ceping', ({ slug: cepingSlug }) => cepingSlug === slug);
+
+const [ceping] = cepings;
+
+const { Content } = await ceping.render();
+
+if (!ceping) {
+  throw new Error(`测评文章 "${slug}" 未找到`);
+}
+---
+
+<Layout title={ceping.data.title}>
+  <main>
+    <Navbar client:visible />
+    <div class="container mx-auto p-8">
+      <article class="prose lg:prose-xl">
+<div class="p-8">
+  <h1 class="text-3xl font-bold mb-4">{ceping.data.title}</h1>
+
+  <Content />
+</div>
+<Waline serverURL="https://com.dragonjay.top" pageview={true} path={`/ceping/${ceping.slug}`} emoji={[
+  'https://unpkg.com/@waline/emojis@1.2.0/bilibili',
+  'https://unpkg.com/@waline/emojis@1.2.0/bmoji',
+  'https://unpkg.com/@waline/emojis@1.2.0/qq',
+  'https://unpkg.com/@waline/emojis@1.2.0/tieba',
+  'https://unpkg.com/@waline/emojis@1.2.0/weibo',
+  'https://unpkg.com/@waline/emojis@1.2.0/soul-emoji'
+]} client:visible />
+</article>
+</div>
+</main>
+</Layout>
