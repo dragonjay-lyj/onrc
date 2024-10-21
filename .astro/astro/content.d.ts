@@ -150,78 +150,76 @@ declare module 'astro:content' {
 	>;
 
 	type ContentEntryMap = {
-		"ceping": {
-"Balatro.mdx": {
-	id: "Balatro.mdx";
-  slug: "balatro";
-  body: string;
-  collection: "ceping";
-  data: InferEntrySchema<"ceping">
-} & { render(): Render[".mdx"] };
-"Dying_Light.mdx": {
-	id: "Dying_Light.mdx";
-  slug: "dying_light";
-  body: string;
-  collection: "ceping";
-  data: InferEntrySchema<"ceping">
-} & { render(): Render[".mdx"] };
-};
-"game": {
+		"game": {
 "Balatro.mdx": {
 	id: "Balatro.mdx";
   slug: "balatro";
   body: string;
   collection: "game";
-  data: InferEntrySchema<"game">
+  data: any
 } & { render(): Render[".mdx"] };
 "Bodycam.mdx": {
 	id: "Bodycam.mdx";
   slug: "bodycam";
   body: string;
   collection: "game";
-  data: InferEntrySchema<"game">
+  data: any
 } & { render(): Render[".mdx"] };
 "Buckshot_Roulette.mdx": {
 	id: "Buckshot_Roulette.mdx";
   slug: "buckshot_roulette";
   body: string;
   collection: "game";
-  data: InferEntrySchema<"game">
+  data: any
 } & { render(): Render[".mdx"] };
 "Dying_Light.mdx": {
 	id: "Dying_Light.mdx";
   slug: "dying_light";
   body: string;
   collection: "game";
-  data: InferEntrySchema<"game">
+  data: any
 } & { render(): Render[".mdx"] };
 "Ghost_of_Tsushima.mdx": {
 	id: "Ghost_of_Tsushima.mdx";
   slug: "ghost_of_tsushima";
   body: string;
   collection: "game";
-  data: InferEntrySchema<"game">
+  data: any
+} & { render(): Render[".mdx"] };
+"Grand_Theft_Auto_V.mdx": {
+	id: "Grand_Theft_Auto_V.mdx";
+  slug: "grand_theft_auto_v";
+  body: string;
+  collection: "game";
+  data: any
+} & { render(): Render[".mdx"] };
+"Little_Kitty_Big_City.mdx": {
+	id: "Little_Kitty_Big_City.mdx";
+  slug: "little_kitty_big_city";
+  body: string;
+  collection: "game";
+  data: any
 } & { render(): Render[".mdx"] };
 "Murders_on_the_Yangtze_River.mdx": {
 	id: "Murders_on_the_Yangtze_River.mdx";
   slug: "murders_on_the_yangtze_river";
   body: string;
   collection: "game";
-  data: InferEntrySchema<"game">
+  data: any
 } & { render(): Render[".mdx"] };
 "Myth_of_Empires.mdx": {
 	id: "Myth_of_Empires.mdx";
   slug: "myth_of_empires";
   body: string;
   collection: "game";
-  data: InferEntrySchema<"game">
+  data: any
 } & { render(): Render[".mdx"] };
 "The_Hungry_Lamb_Traveling_in_the_Late_Ming_Dynasty.mdx": {
 	id: "The_Hungry_Lamb_Traveling_in_the_Late_Ming_Dynasty.mdx";
   slug: "the_hungry_lamb_traveling_in_the_late_ming_dynasty";
   body: string;
   collection: "game";
-  data: InferEntrySchema<"game">
+  data: any
 } & { render(): Render[".mdx"] };
 };
 
@@ -233,5 +231,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	export type ContentConfig = typeof import("./../../src/content/config.js");
+	export type ContentConfig = never;
 }
